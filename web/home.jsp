@@ -27,7 +27,7 @@
                 <div class="row">
                     <div class="col-md-9 mx-auto">
                         <h1 class="display-4">Encontre os dados</h1>
-                        <p class="lead">Os dados estão organizados em três seções. Escolha uma delas abaixo.</p>
+                        <p class="lead">Os dados estão organizados em duas seções. Escolha uma delas abaixo.</p>
                     </div>
                 </div>
             </div>

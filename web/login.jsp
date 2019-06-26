@@ -24,7 +24,8 @@
                         <h1 class="mb-4">Log in</h1>
                         <form action="Login" method="POST">
                             <div class="form-group"> <input type="email" maxlength="" class="form-control" placeholder="Email" id="mail" name="mail" maxlength="50"> </div>
-                            <div class="form-group mb-3"> <input type="password" class="form-control" placeholder="Senha" id="senha" name="senha" maxlength="50"> <small class="form-text text-muted text-right">
+                            <div class="form-group mb-3"> <input type="password" class="form-control" placeholder="Senha" id="senha" name="senha" maxlength="50" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,}" title="
+                                                                                                                 Deve conter pelo menos um número e uma letra maiúscula, caracteres especiais e minúscula e pelo menos 8 ou mais caracteres"> <small class="form-text text-muted text-right">
                                     <a href="forgotPassword.jsp"> Esqueceu sua senha?</a> <br>
                                     <a href="cadastro.jsp"> Cadastrar</a>
                                 </small> </div> 

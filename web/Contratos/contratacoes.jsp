@@ -40,14 +40,15 @@
                 </div>
             </div>
         </div>
-            
+
         <div class="py-3" >
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                            <form class="form-inline justify-content-end" action="../InfoBuscaPorAno" method="GET">
+                            <form class="form-inline justify-content-end" action="../InfoBuscaPorAno" method="POST">
                             <div class="input-group">
-                                <input type="text" class="form-control" id="ano" placeholder="Ex: 2018" name="ano">
+                                <input type="text" class="form-control" id="ano" placeholder="Ex: 2018" name="ano" pattern="(?=.*\d).{4}" title="Deve conter somente números">
+                                                                                                                 
                                 <div class="input-group-append"><button class="btn btn-primary" type="submit"><i class="fa fa-search"></i></button></div>
                             </div>
                         </form>
@@ -56,6 +57,11 @@
             </div>
         </div> 
 
+                <%
+           // String ano = request.getParameter("listContratos");
+            //request.setAttribute("listContratos", ano);
+        
+        %>
         <!--<div class="py-0" style="">
             <div class="container">
                 <div class="row">

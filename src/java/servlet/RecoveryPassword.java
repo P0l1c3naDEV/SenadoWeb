@@ -8,6 +8,7 @@ package servlet;
 import control.secutity.SecurityCrypto;
 import control.secutity.Token;
 import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.SignatureException;
 import java.io.IOException;
 import javax.persistence.EntityManager;
@@ -45,11 +46,11 @@ public class RecoveryPassword extends HttpServlet {
         try {
             Claims parser = Token.validateToken(token);
             //Verificando se o token está vazio
-            /*
+            
             if (token == null || token.trim().isEmpty()) {
                 response.setStatus(401);
                 return;
-            }*/
+            }
             //Adquirindo o parâmetro para a atualização de email
             String email = String.valueOf(parser.getSubject());
 
@@ -73,9 +74,9 @@ public class RecoveryPassword extends HttpServlet {
             
         } catch (SignatureException e) {
             //Se o token estiver sido modificado a página não responderá
-            //response.setStatus(401);
-            System.out.println("KLSDlksadja");
-        }
+            response.setStatus(401);
+            System.out.println("Token Inválido! ");
+        } 
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -45,7 +45,8 @@ public class ForgotPassword extends HttpServlet {
         SecurityManager security = System.getSecurityManager (); 
         out.println ("Security Manager" + security); 
         */
-        String link = "http://localhost:8080/SenadoWeb/passwordRecovery.jsp" + "?id=" + token;
+        String link = " Aqui está o seu link para a recuperação de senha!    " +
+                "http://localhost:8080/SenadoWeb/passwordRecovery.jsp" + "?id=" + token;
         send.sendEmail(link, email);
 
         response.sendRedirect("MensagemOKEmail.jsp");

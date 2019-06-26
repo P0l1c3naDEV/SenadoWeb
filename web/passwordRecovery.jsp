@@ -26,27 +26,46 @@
     <body>
         <%@include  file="header.jsp" %>
         <jsp:include page="/RecoveryPassword" flush="true" />
+
+
         <div class="py-5 text-center" style="background-color: ;background-size:cover;">
             <div class="container">
                 <div class="row">
                     <div class="mx-auto col-md-6 col-10 bg-white p-5 shadow-lg">
                         <h1 class="mb-4">Password Recovery</h1>
-                        <form action="RecoveryPassword" method="POST">
+                        <form action="RecoveryPassword" method="POST" onsubmit="validatePassword()">
                             <input type="hidden" name="id" value="<%=request.getParameter("id")%>">
                             <div class="form-group"> <label for="password" class="d-flex">Senha</label> <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,}" title="
-                                                                                                               Deve conter pelo menos um número e uma letra maiúscula, caracteres especiais e minúscula e pelo menos 8 ou mais caracteres" class="form-control d-flex justify-content-center" id="password" placeholder="*****" required="required" name="password">
+                                                                                                               Deve conter pelo menos um número e uma letra maiúscula, caracteres especiais e minúscula e pelo menos 8 ou mais caracteres" class="form-control d-flex justify-content-center" id="password" placeholder="***********" required="required" name="password">
                                 <br>
                                 <div class="form-group">
                                 </div>
                             </div>
-                            <div class="form-group"> <label for="password" class="d-flex" >Confime a Senha</label> <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,}" title="
-                                                                                                                          Deve conter pelo menos um número e uma letra maiúscula, caracteres especiais e minúscula e pelo menos 8 ou mais caracteres" class="form-control d-flex justify-content-center" id="password" placeholder="*****" required="required" name="password">
+                            <div class="form-group"> <label for="passwordconfirm" class="d-flex" >Confime a Senha</label> <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%]).{8,}" title="
+                                                                                                                                 Deve conter pelo menos um número e uma letra maiúscula, caracteres especiais e minúscula e pelo menos 8 ou mais caracteres" class="form-control d-flex justify-content-center" id="passwordconfirm" placeholder="***********" required="required" name="passwordconfirm">
 
                                 <br>
                                 <div class="form-group">
                                 </div> <button type="submit" class="btn btn-primary text-right justify-content-end">Enviar</button>
+
+                                <script type="text/javascript">
+                                    var password = document.getElementById("password")
+                                            , confirm_password = document.getElementById("passwordconfirm");
+
+                                    function validatePassword() {
+                                        if (password.value !== confirm_password.value) {
+                                            confirm_password.setCustomValidity("As senhas não são iguais! Por favor, insira sua senha corretamente!");
+                                        } else {
+                                            confirm_password.setCustomValidity('');
+                                        }
+                                    }
+
+                                    password.onchange = validatePassword;
+                                    confirm_password.onkeyup = validatePassword;
+                                </script>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>
